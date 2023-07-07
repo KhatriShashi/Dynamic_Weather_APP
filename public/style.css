@@ -1,0 +1,96 @@
+.box{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 20rem;
+    height: 30rem;
+    background-color: #5534AB;
+    border-radius: 20px;
+    overflow: hidden;
+}
+#weathercon{
+    height: 16rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#weathercon i{
+    font-size: 80px;
+}
+.box .info{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.box .info h2 {
+    margin: 5px 0;
+    font-size: 30px;
+}
+.box .info h2 i{
+    margin-right: 5px;
+    color:crimson;
+}
+.box .info p {
+    margin: 5px 0;
+    letter-spacing: 3px;
+}
+.box .info h1 {
+    margin: 10px 0;
+    font-size: 40px;
+}
+.box .info h3 {
+    margin: 5px 0;
+    letter-spacing: 2px;
+}
+
+/* wave box*/
+.wave.-one {
+    position: absolute;
+    height: 40rem;
+    width: 40rem;
+    background: rgb(38,198,248);
+    background: linear-gradient(90deg, rgba(38,198,248,1) 4%, rgba(163,232,253,1) 98%);
+    top: 18rem;
+    left: -100px;
+    z-index: -1;
+    border: none;
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    animation: rotation 6s infinite linear;
+}
+.wave.-two {
+    position: absolute;
+    height: 40rem;
+    width: 40rem;
+    background: rgb(38,198,248);
+background: linear-gradient(90deg, rgba(38,198,248,1) 4%, rgba(163,232,253,1) 98%);
+    top: 17rem;
+    left: -100px;
+    z-index: -2;
+    border: none;
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    animation: rotation 6s infinite linear;
+}
+.wave.-three{
+    position: absolute;
+    height: 40rem;
+    width: 40rem;
+    background: rgb(38,198,248);
+    background: linear-gradient(90deg, rgba(38,198,248,1) 4%, rgba(163,232,253,1) 98%);
+    top: 15rem;
+    left: -100px;
+    z-index: -3;
+    border: none;
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    animation: rotation 6s infinite linear;
+}
+@keyframes rotation {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(359deg);
+    }
+  }

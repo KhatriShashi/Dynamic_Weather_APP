@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+        integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous" />
+    <link rel="stylesheet" href="./style.css">
+    <title>Weather App</title>
+</head>
+
+<body>
+    <div class="box">
+        <div class="wave -one"></div>
+        <div class="wave -two"></div>
+        <div class="wave -three"></div>
+
+        <div id="weathercon">
+            <!-- Weather Condition will be added here -->
+            <i class="fas fa-sun" style="color: #eccc68;"></i>
+        </div>
+        <div class="info">
+            <h2 class="location"><i class="fas fa-street-view"></i>{%location%},{%country%}</h2>
+            <p id="date">WED | OCT 23 | 10:49AM</p>
+            <h1 class="temp">{%tempval%}℃</h1>
+            <h3 class="tempmin_max">Min {%tempmin%}℃ | Max {%tempmax%}℃</h3>
+        </div>
+    </div>
+
+    <script src="../index.js"></script>
+    <script>
+        const curDate = document.getElementById("date");
+        let weathercon = document.getElementById("weathercon");
+        const tempStatus = "Clouds";
+
+        const getCurrentDay = () => {
+            var weekday = new Array(7);
+            weekday[0] = "Sun"; weekday[1] = "Mon";
+            weekday[2] = "Tue"; weekday[3] = "Wed";
+            weekday[4] = "Thu"; weekday[5] = "Fri";
+            weekday[6] = "Sat";
+            let currentTime = new Date();
+            let day = weekday[currentTime.getDay()];
+            return day;
+        };
+
+        const getCurrentTime = () => {
+            var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
+
+            const updateTime = () => {
+                const dateObj = new Date();
+                var month = months[dateObj.getMonth()];
+                var year = dateObj.getFullYear();
+                let hours = dateObj.getHours();
+                let mins = dateObj.getMinutes();
+                let second=dateObj.getSeconds();
+                let periods = "AM";
+                if (hours > 11) {
+                    periods = "PM";
+                    if (hours > 12) {
+                        hours -= 12;
+                    }
+                }
+                if (mins < 10) {
+                    mins = "0" + mins;
+                }
+
+                curDate.innerHTML = `${month} | ${year} | ${hours}:${mins}:${second}:${periods}`;
+            };
+
+            updateTime(); // Call the function initially to set the time immediately
+            setInterval(updateTime, 1000); // Update the time every second
+        };
+
+        curDate.innerHTML = getCurrentDay() + " | " + getCurrentTime();
+    </script>
+</body>
+
+</html>
